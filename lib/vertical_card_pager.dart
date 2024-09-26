@@ -271,7 +271,6 @@ class CardControllerWidget extends StatelessWidget {
       start: getStartPosition(cardWidth),
       child: Card(
         elevation: 3,
-        shadowColor: Colors.black.withOpacity(0.3),
         color: Colors.white,
         child: Container(
           child: Opacity(
