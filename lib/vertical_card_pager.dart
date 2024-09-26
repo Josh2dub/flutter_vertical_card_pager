@@ -95,7 +95,7 @@ class _VerticalCardPagerState extends State<VerticalCardPager> {
             Positioned.fill(
               child: PageView.builder(
                 scrollDirection: Axis.vertical,
-                itemCount: widget.images.length,
+                itemCount: widget.images.length + 1,
                 controller: controller,
                 itemBuilder: (context, index) {
                   return Container();
