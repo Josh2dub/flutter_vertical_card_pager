@@ -269,27 +269,34 @@ class CardControllerWidget extends StatelessWidget {
       textDirection: TextDirection.ltr,
       top: cardTop,
       start: getStartPosition(cardWidth),
-      child: Container(
-        child: Opacity(
-          opacity: getOpacity(images!.length),
-          child: Container(
-            width: cardWidth,
-            height: cardHeight,
-            child: Stack(
-              children: <Widget>[
-                Align(
-                  alignment: Alignment.center,
-                  child: Row(
-                    children: [
-                      iconWidget ?? Container(),
-                      SizedBox(
-                        width: 6,
-                      ),
-                      labelTextWidget ?? Container(),
-                    ],
+      child: Card(
+        elevation: 3,
+        shadowColor: Colors.black.withOpacity(0.3),
+        color: Colors.white,
+        child: Container(
+          child: Opacity(
+            opacity: getOpacity(images!.length),
+            child: Container(
+              width: cardWidth,
+              height: cardHeight,
+              child: Stack(
+                children: <Widget>[
+                  Align(
+                    alignment: Alignment.center,
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        iconWidget ?? Container(),
+                        SizedBox(
+                          width: 6,
+                        ),
+                        labelTextWidget ?? Container(),
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ),
