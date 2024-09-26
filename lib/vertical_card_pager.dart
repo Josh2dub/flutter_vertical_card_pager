@@ -274,6 +274,7 @@ class CardControllerWidget extends StatelessWidget {
           opacity: getOpacity(images!.length),
           child: Material(
             elevation: 3,
+            borderRadius: BorderRadius.all(Radius.circular(17)),
             child: Container(
               width: cardWidth,
               height: cardHeight,
