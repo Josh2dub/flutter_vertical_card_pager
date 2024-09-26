@@ -16,7 +16,7 @@ class VerticalCardPager extends StatefulWidget {
   final int initialPage;
   final ALIGN align;
   final Widget? labelTextWidget;
-  final IconData? iconData;
+  final Icon? iconWidget;
 
   VerticalCardPager({
     required this.titles,
@@ -27,7 +27,7 @@ class VerticalCardPager extends StatefulWidget {
     this.onSelectedItem,
     this.align = ALIGN.CENTER,
     this.labelTextWidget,
-    this.iconData,
+    this.iconWidget,
   }) : assert(titles.length == images.length);
 
   @override
@@ -90,6 +90,8 @@ class _VerticalCardPagerState extends State<VerticalCardPager> {
               currentPostion: currentPosition,
               cardViewPagerHeight: constraints.maxHeight,
               cardViewPagerWidth: constraints.maxWidth,
+              labelTextWidget: widget.labelTextWidget,
+              iconWidget: widget.iconWidget,
               align: widget.align,
             ),
             Positioned.fill(
@@ -198,7 +200,7 @@ class CardControllerWidget extends StatelessWidget {
   final TextStyle? textStyle;
   final ALIGN? align;
   final Widget? labelTextWidget;
-  final IconData? iconData;
+  final Icon? iconWidget;
 
   final List? titles;
   final List? images;
@@ -212,7 +214,7 @@ class CardControllerWidget extends StatelessWidget {
     this.align,
     this.textStyle,
     this.labelTextWidget,
-    this.iconData,
+    this.iconWidget,
   })  : cardMaxHeight = cardViewPagerHeight * (1 / 2),
         cardMaxWidth = cardViewPagerHeight * (1 / 2);
 
@@ -279,10 +281,7 @@ class CardControllerWidget extends StatelessWidget {
                   alignment: Alignment.center,
                   child: Row(
                     children: [
-                      Icon(
-                        iconData,
-                        size: 20,
-                      ),
+                      iconWidget ?? Container(),
                       SizedBox(
                         width: 6,
                       ),
