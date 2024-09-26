@@ -15,16 +15,20 @@ class VerticalCardPager extends StatefulWidget {
   final TextStyle? textStyle;
   final int initialPage;
   final ALIGN align;
+  final Widget? labelTextWidget;
+  final IconData? iconData;
 
-  VerticalCardPager(
-      {required this.titles,
-      required this.images,
-      this.onPageChanged,
-      this.textStyle,
-      this.initialPage = 2,
-      this.onSelectedItem,
-      this.align = ALIGN.CENTER})
-      : assert(titles.length == images.length);
+  VerticalCardPager({
+    required this.titles,
+    required this.images,
+    this.onPageChanged,
+    this.textStyle,
+    this.initialPage = 2,
+    this.onSelectedItem,
+    this.align = ALIGN.CENTER,
+    this.labelTextWidget,
+    this.iconData,
+  }) : assert(titles.length == images.length);
 
   @override
   _VerticalCardPagerState createState() => _VerticalCardPagerState();
@@ -193,19 +197,23 @@ class CardControllerWidget extends StatelessWidget {
   final double? cardViewPagerWidth;
   final TextStyle? textStyle;
   final ALIGN? align;
+  final Widget? labelTextWidget;
+  final IconData? iconData;
 
   final List? titles;
   final List? images;
 
-  CardControllerWidget(
-      {this.titles,
-      this.images,
-      this.cardViewPagerWidth,
-      required this.cardViewPagerHeight,
-      this.currentPostion,
-      this.align,
-      this.textStyle})
-      : cardMaxHeight = cardViewPagerHeight * (1 / 2),
+  CardControllerWidget({
+    this.titles,
+    this.images,
+    this.cardViewPagerWidth,
+    required this.cardViewPagerHeight,
+    this.currentPostion,
+    this.align,
+    this.textStyle,
+    this.labelTextWidget,
+    this.iconData,
+  })  : cardMaxHeight = cardViewPagerHeight * (1 / 2),
         cardMaxWidth = cardViewPagerHeight * (1 / 2);
 
   @override
@@ -223,7 +231,6 @@ class CardControllerWidget extends StatelessWidget {
     for (int i = 0; i < images!.length; i++) {
       var cardWidth = max(cardMaxWidth - 60 * (currentPostion! - i).abs(), 0.0) + 70;
       var cardHeight = getCardHeight(i);
-      print('CARD > ${i} / Width > ${cardWidth}');
       var cardTop = getTop(cardHeight, cardViewPagerHeight, i);
 
       Widget card = Positioned.directional(
@@ -241,12 +248,6 @@ class CardControllerWidget extends StatelessWidget {
                   Positioned.fill(
                     child: images![i],
                   ),
-                  Align(
-                      child: Text(
-                    titles![i],
-                    style: titleTextStyle.copyWith(fontSize: getFontSize(i)),
-                    textAlign: TextAlign.center,
-                  )),
                 ],
               ),
             ),
@@ -256,6 +257,47 @@ class CardControllerWidget extends StatelessWidget {
 
       cardList.add(card);
     }
+
+    // Last
+    var cardWidth = max(cardMaxWidth - 60 * (currentPostion! - images!.length).abs(), 0.0) + 70;
+    var cardHeight = getCardHeight(images!.length);
+    var cardTop = getTop(cardHeight, cardViewPagerHeight, images!.length);
+
+    Widget card = Positioned.directional(
+      textDirection: TextDirection.ltr,
+      top: cardTop,
+      start: getStartPosition(cardWidth),
+      child: Container(
+        child: Opacity(
+          opacity: getOpacity(images!.length),
+          child: Container(
+            width: cardWidth,
+            height: cardHeight,
+            child: Stack(
+              children: <Widget>[
+                Align(
+                  alignment: Alignment.center,
+                  child: Row(
+                    children: [
+                      Icon(
+                        iconData,
+                        size: 20,
+                      ),
+                      SizedBox(
+                        width: 6,
+                      ),
+                      labelTextWidget ?? Container(),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+
+    cardList.add(card);
 
     return Stack(
       children: cardList,
