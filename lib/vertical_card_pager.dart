@@ -269,33 +269,39 @@ class CardControllerWidget extends StatelessWidget {
       textDirection: TextDirection.ltr,
       top: cardTop,
       start: getStartPosition(cardWidth),
-      child: Card(
-        elevation: 3,
-        color: Colors.white,
-        child: Container(
-          child: Opacity(
-            opacity: getOpacity(images!.length),
-            child: Container(
-              width: cardWidth,
-              height: cardHeight,
-              child: Stack(
-                children: <Widget>[
-                  Align(
-                    alignment: Alignment.center,
-                    child: Row(
-                      mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        iconWidget ?? Container(),
-                        SizedBox(
-                          width: 6,
-                        ),
-                        labelTextWidget ?? Container(),
-                      ],
-                    ),
+      child: Container(
+        child: Opacity(
+          opacity: getOpacity(images!.length),
+          child: Container(
+            width: cardWidth,
+            height: cardHeight,
+            decoration: BoxDecoration(
+              boxShadow: <BoxShadow>[
+                BoxShadow(
+                  color: Colors.black54,
+                  blurRadius: 20.0,
+                  spreadRadius: -20.0,
+                  offset: Offset(0.0, 25.0),
+                )
+              ],
+            ),
+            child: Stack(
+              children: <Widget>[
+                Align(
+                  alignment: Alignment.center,
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      iconWidget ?? Container(),
+                      SizedBox(
+                        width: 6,
+                      ),
+                      labelTextWidget ?? Container(),
+                    ],
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),
