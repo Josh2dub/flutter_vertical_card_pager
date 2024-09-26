@@ -275,6 +275,7 @@ class CardControllerWidget extends StatelessWidget {
           child: Material(
             elevation: 3,
             borderRadius: BorderRadius.all(Radius.circular(17)),
+            color: Colors.white,
             child: Container(
               width: cardWidth,
               height: cardHeight,
