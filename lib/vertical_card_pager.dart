@@ -238,7 +238,7 @@ class CardControllerWidget extends StatelessWidget {
       int extraTop = (currentPostion == i) ? 0 : 16;
       Widget card = Positioned.directional(
         textDirection: TextDirection.ltr,
-        top: cardTop + extraTop,
+        top: cardTop + 15,
         start: getStartPosition(cardWidth),
         child: Container(
           child: Opacity(
@@ -268,7 +268,7 @@ class CardControllerWidget extends StatelessWidget {
 
     Widget card = Positioned.directional(
       textDirection: TextDirection.ltr,
-      top: cardTop + 16,
+      top: cardTop + 15,
       start: getStartPosition(cardWidth),
       child: Container(
         child: Opacity(
