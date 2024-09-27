@@ -331,21 +331,25 @@ class CardControllerWidget extends StatelessWidget {
     }
     if (diffAbs > 0.0 && diffAbs <= 1.0) {
       if (diff >= 0) {
-        return basePosition - (cardMaxHeight * (7 / 9)) * diffAbs;
+        return basePosition - (cardMaxHeight * (6.5 / 9)) * diffAbs;
       } else {
-        return basePosition + (cardMaxHeight * (7 / 9)) * diffAbs;
+        return basePosition + (cardMaxHeight * (6.5 / 9)) * diffAbs;
       }
     } else if (diffAbs > 1.0 && diffAbs < 2.0) {
       if (diff >= 0) {
-        return basePosition - (cardMaxHeight * (7 / 9)) - cardMaxHeight * (3 / 9) * (diffAbs - diffAbs.floor()).abs();
+        return basePosition -
+            (cardMaxHeight * (6.5 / 9)) -
+            cardMaxHeight * (2.5 / 9) * (diffAbs - diffAbs.floor()).abs();
       } else {
-        return basePosition + (cardMaxHeight * (7 / 9)) + cardMaxHeight * (3 / 9) * (diffAbs - diffAbs.floor()).abs();
+        return basePosition +
+            (cardMaxHeight * (6.5 / 9)) +
+            cardMaxHeight * (2.5 / 9) * (diffAbs - diffAbs.floor()).abs();
       }
     } else {
       if (diff >= 0) {
-        return basePosition - cardMaxHeight * (9 / 9);
+        return basePosition - cardMaxHeight * (8.5 / 9);
       } else {
-        return basePosition + cardMaxHeight * (9 / 9);
+        return basePosition + cardMaxHeight * (8.5 / 9);
       }
     }
   }
