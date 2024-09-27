@@ -235,9 +235,10 @@ class CardControllerWidget extends StatelessWidget {
       var cardHeight = getCardHeight(i) + 30;
       var cardTop = getTop(cardHeight, cardViewPagerHeight, i);
 
+      int extraTop = (currentPostion == i) ? 0 : 16;
       Widget card = Positioned.directional(
         textDirection: TextDirection.ltr,
-        top: cardTop,
+        top: cardTop + extraTop,
         start: getStartPosition(cardWidth),
         child: Container(
           child: Opacity(
