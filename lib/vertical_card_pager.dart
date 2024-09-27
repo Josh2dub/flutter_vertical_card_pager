@@ -232,7 +232,7 @@ class CardControllerWidget extends StatelessWidget {
 
     for (int i = 0; i < images!.length; i++) {
       var cardWidth = max(cardMaxWidth - 60 * (currentPostion! - i).abs(), 0.0) + 65;
-      var cardHeight = getCardHeight(i) + 15;
+      var cardHeight = getCardHeight(i);
       var cardTop = getTop(cardHeight, cardViewPagerHeight, i);
 
       int extraTop = (currentPostion == i) ? 0 : 16;
