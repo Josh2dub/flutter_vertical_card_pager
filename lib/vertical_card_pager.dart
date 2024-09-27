@@ -355,13 +355,13 @@ class CardControllerWidget extends StatelessWidget {
 
     if (diff >= 0.0 && diff < 1.0) {
       print('cardPager : ${index} - 0');
-      return (cardMaxHeight - cardMaxHeight * (0.9) * ((diff - diff.floor())));
+      return (cardMaxHeight - cardMaxHeight * (0.7) * ((diff - diff.floor())));
     } else if (diff >= 1.0 && diff < 2.0) {
       print('cardPager : ${index} - 1');
-      return cardMaxHeight - cardMaxHeight * (0.9) - 10 * ((diff - diff.floor()));
+      return cardMaxHeight - cardMaxHeight * (0.7) - 10 * ((diff - diff.floor()));
     } else {
       print('cardPager : ${index} - 2');
-      final height = cardMaxHeight - cardMaxHeight * (0.9) - 10 - 8 * ((diff - diff.floor()));
+      final height = cardMaxHeight - cardMaxHeight * (0.7) - 10 - 7 * ((diff - diff.floor()));
 
       return height > 0 ? height : 0;
     }
