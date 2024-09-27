@@ -232,13 +232,13 @@ class CardControllerWidget extends StatelessWidget {
 
     for (int i = 0; i < images!.length; i++) {
       var cardWidth = max(cardMaxWidth - 60 * (currentPostion! - i).abs(), 0.0) + 65;
-      var cardHeight = getCardHeight(i) + 30;
+      var cardHeight = getCardHeight(i) + 15;
       var cardTop = getTop(cardHeight, cardViewPagerHeight, i);
 
       int extraTop = (currentPostion == i) ? 0 : 16;
       Widget card = Positioned.directional(
         textDirection: TextDirection.ltr,
-        top: cardTop + 15,
+        top: cardTop,
         start: getStartPosition(cardWidth),
         child: Container(
           child: Opacity(
@@ -263,12 +263,12 @@ class CardControllerWidget extends StatelessWidget {
 
     // Last
     var cardWidth = max(cardMaxWidth - 60 * (currentPostion! - images!.length).abs(), 0.0) + 65;
-    var cardHeight = getCardHeight(images!.length) + 30;
-    var cardTop = getTop(cardHeight + 30, cardViewPagerHeight, images!.length);
+    var cardHeight = getCardHeight(images!.length) + 15;
+    var cardTop = getTop(cardHeight, cardViewPagerHeight, images!.length);
 
     Widget card = Positioned.directional(
       textDirection: TextDirection.ltr,
-      top: cardTop + 15,
+      top: cardTop,
       start: getStartPosition(cardWidth),
       child: Container(
         child: Opacity(
