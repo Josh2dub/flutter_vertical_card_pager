@@ -261,7 +261,7 @@ class CardControllerWidget extends StatelessWidget {
     }
 
     // Last
-    var cardWidth = max(cardMaxWidth - 60 * (currentPostion! - images!.length).abs(), 0.0) + 70;
+    var cardWidth = max(cardMaxWidth - 60 * (currentPostion! - images!.length).abs(), 0.0) + 65;
     var cardHeight = getCardHeight(images!.length) + 30;
     var cardTop = getTop(cardHeight, cardViewPagerHeight, images!.length);
 
