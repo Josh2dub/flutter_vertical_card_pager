@@ -268,7 +268,7 @@ class CardControllerWidget extends StatelessWidget {
 
     Widget card = Positioned.directional(
       textDirection: TextDirection.ltr,
-      top: cardTop,
+      top: cardTop + 16,
       start: getStartPosition(cardWidth),
       child: Container(
         child: Opacity(
