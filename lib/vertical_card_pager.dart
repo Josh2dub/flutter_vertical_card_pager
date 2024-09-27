@@ -263,7 +263,7 @@ class CardControllerWidget extends StatelessWidget {
 
     // Last
     var cardWidth = max(cardMaxWidth - 60 * (currentPostion! - images!.length).abs(), 0.0) + 65;
-    var cardHeight = getCardHeight(images!.length) + 5;
+    var cardHeight = getCardHeight(images!.length);
     var cardTop = getTop(cardHeight, cardViewPagerHeight, images!.length);
 
     Widget card = Positioned.directional(
@@ -354,10 +354,13 @@ class CardControllerWidget extends StatelessWidget {
     double diff = (currentPostion! - index).abs();
 
     if (diff >= 0.0 && diff < 1.0) {
+      print('${index} - 0');
       return cardMaxHeight - cardMaxHeight * (4 / 5) * ((diff - diff.floor()));
     } else if (diff >= 1.0 && diff < 2.0) {
+      print('${index} - 1');
       return cardMaxHeight - cardMaxHeight * (4 / 5) - 10 * ((diff - diff.floor()));
     } else {
+      print('${index} - 2');
       final height = cardMaxHeight - cardMaxHeight * (4 / 5) - 10 - 5 * ((diff - diff.floor()));
 
       return height > 0 ? height : 0;
