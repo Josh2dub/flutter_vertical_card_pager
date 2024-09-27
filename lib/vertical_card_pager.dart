@@ -231,8 +231,8 @@ class CardControllerWidget extends StatelessWidget {
     }
 
     for (int i = 0; i < images!.length; i++) {
-      var cardWidth = max(cardMaxWidth - 60 * (currentPostion! - i).abs(), 0.0) + 70;
-      var cardHeight = getCardHeight(i);
+      var cardWidth = max(cardMaxWidth - 60 * (currentPostion! - i).abs(), 0.0) + 65;
+      var cardHeight = getCardHeight(i) + 30;
       var cardTop = getTop(cardHeight, cardViewPagerHeight, i);
 
       Widget card = Positioned.directional(
