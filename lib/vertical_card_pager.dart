@@ -71,7 +71,7 @@ class _VerticalCardPagerState extends State<VerticalCardPager> {
           if ((currentPosition! - currentPosition!.floor()).abs() <= 0.15) {
             int selectedIndex = onTapUp(context, constraints.maxHeight, constraints.maxWidth, details);
 
-            if (selectedIndex == 1) {
+            if (selectedIndex == 2) {
               if (widget.onSelectedItem != null) {
                 Future(() => widget.onSelectedItem!(currentPosition!.round()));
               }
