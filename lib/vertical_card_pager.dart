@@ -76,7 +76,7 @@ class _VerticalCardPagerState extends State<VerticalCardPager> {
                 Future(() => widget.onSelectedItem!(currentPosition!.round()));
               }
             } else if (selectedIndex >= 0) {
-              int goToPage = currentPosition!.toInt() + selectedIndex - 2;
+              int goToPage = currentPosition!.toInt() + selectedIndex - 1;
               controller!.animateToPage(goToPage, duration: Duration(milliseconds: 300), curve: Curves.easeInOutExpo);
             }
           }
