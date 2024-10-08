@@ -71,7 +71,7 @@ class _VerticalCardPagerState extends State<VerticalCardPager> {
           if ((currentPosition! - currentPosition!.floor()).abs() <= 0.15) {
             int selectedIndex = onTapUp(context, constraints.maxHeight, constraints.maxWidth, details);
 
-            if (selectedIndex == 2) {
+            if (selectedIndex == 1) {
               if (widget.onSelectedItem != null) {
                 Future(() => widget.onSelectedItem!(currentPosition!.round()));
               }
@@ -358,13 +358,10 @@ class CardControllerWidget extends StatelessWidget {
     double diff = (currentPostion! - index).abs();
 
     if (diff >= 0.0 && diff < 1.0) {
-      print('cardPager : ${index} - 0');
       return (cardMaxHeight - cardMaxHeight * (0.7) * ((diff - diff.floor())));
     } else if (diff >= 1.0 && diff < 2.0) {
-      print('cardPager : ${index} - 1');
       return cardMaxHeight - cardMaxHeight * (0.7) - 10 * ((diff - diff.floor()));
     } else {
-      print('cardPager : ${index} - 2');
       final height = cardMaxHeight - cardMaxHeight * (0.7) - 10 - 7 * ((diff - diff.floor()));
 
       return height > 0 ? height : 0;
